@@ -1,6 +1,7 @@
 const form = document.getElementById('contactForm');
 const responseMessage = document.getElementById('responseMessage');
-const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbxsKumOS1H7hEYljOZn8CiYZQ4JmYe18nLnGD_Uo2yupYwnWEFt4iAmxuSMFLMlb4U/exec'; // Replace with your Apps Script Web App URL
+// const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbxsKumOS1H7hEYljOZn8CiYZQ4JmYe18nLnGD_Uo2yupYwnWEFt4iAmxuSMFLMlb4U/exec'; // Replace with your Apps Script Web App URL
+const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbyAsh7mogeD7eQRYtWVBNF6_6AovA1zpWw_ZxkXyg/dev'; // Replace with your Apps Script Web App URL
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
