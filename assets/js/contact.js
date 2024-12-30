@@ -1,20 +1,28 @@
+const form = document.getElementById('contactForm');
+const responseMessage = document.getElementById('responseMessage');
+const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbxsKumOS1H7hEYljOZn8CiYZQ4JmYe18nLnGD_Uo2yupYwnWEFt4iAmxuSMFLMlb4U/exec'; // Replace with your Apps Script Web App URL
 
-document.getElementById("contactForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const jsonData = Object.fromEntries(formData.entries());
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-    try {
-        const response = await fetch(this.action, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(jsonData),
-        });
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    message: document.getElementById('message').value,
+  };
 
-        const result = await response.json();
-        alert(result.message || "Form submitted successfully!");
-    } catch (error) {
-        console.error("Error:", error);
-        alert("There was an error submitting the form. Please try again.");
-    }
+  fetch(googleAppsScriptURL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      responseMessage.textContent = data.message;
+      form.reset();
+    })
+    .catch((error) => {
+      responseMessage.textContent = 'Error submitting the form. Please try again.';
+      console.error('Error:', error);
+    });
 });

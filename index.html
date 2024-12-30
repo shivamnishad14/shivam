@@ -29,7 +29,7 @@
     <header>
 
         <div>
-            <a href="./index.html"><span class="logo">WEB-DEVELOPER</span></a>
+            <a href="./index.html"><span class="logo">PORTFOLIO</span></a>
         </div>
         <div>
             <ul>
@@ -125,7 +125,7 @@
             <div class="projects-cards">
                 <div class="projects-card-box">
                     <div class="projects-card-box__icons">
-                        <i class="fa-solid fa-suitcase"></i>
+                        <i class="fa-regular fa-clock"></i>
                     </div>
                     <div class="projects-card-box__desc">
                         <h4>Digital Clock</h4>
@@ -142,20 +142,16 @@
 
                 <div class="projects-card-box">
                     <div class="projects-card-box__icons">
-                        <i class="fa-solid fa-music"></i>
+                        <i class="fa-solid fa-newspaper"></i>
                     </div>
                     <div class="projects-card-box__desc">
                         <h4>News Website</h4>
-                        <p>A music player built with HTML, CSS, and JavaScript, offering
-                            an
-                            intuitive interface for playlist management and audio playback, optimized for both desktop
-                            and
-                            mobile experiences.
+                        <p>A simple web app fetching and displaying news sources with titles, descriptions, and categories using the NewsAPI, styled with a responsive, minimalist design.
                         </p>
                     </div>
                     <div class="projects-card-box__buttons">
                         <button class="btn btn-dark-outlined">
-                            <a href=""
+                            <a href="./newsApp.html"
                                 target="_blank">View <i class="fa-solid fa-external-link"></i></a>
                         </button>
                     </div>
@@ -173,7 +169,7 @@
                     </div>
                     <div class="projects-card-box__buttons">
                         <button class="btn btn-dark-outlined">
-                            <a href=""
+                            <a href="./loginPage.html"
                                 target="_blank">View <i class="fa-solid fa-external-link"></i></a>
                         </button>
                     </div>
@@ -187,13 +183,13 @@
             <h2>Contact <span>ME!</span></h2>
             <form action="https://script.google.com/macros/s/AKfycbxsKumOS1H7hEYljOZn8CiYZQ4JmYe18nLnGD_Uo2yupYwnWEFt4iAmxuSMFLMlb4U/exec" method="POST" id="contactForm">
                 <div>
-                    <input type="text" name="name" placeholder="FullName" required>
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
                 </div>
                 <div>
-                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div>
-                    <textarea name="message" placeholder="Type Message" rows="5"></textarea>
+                    <textarea id="message" name="message" placeholder="Type Message" rows="5"></textarea>
                 </div>
                 <div>
                     <button class="btn btn-primary" type="submit">SEND MESSAGE</button>
