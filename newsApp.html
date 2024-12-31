@@ -68,7 +68,9 @@
 
   <script>
     const apiKey = "0c6b7b94f5b149509cef0769124a4841"; // Replace with your NewsAPI key
-    const apiUrl = `https://newsapi.org/v2/top-headlines/sources?apiKey=${apiKey}`;
+    // const apiUrl = `https://newsapi.org/v2/top-headlines/sources?apiKey=${apiKey}`;
+    const apiUrl = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines/sources?apiKey=${apiKey}`;
+
 
     fetch(apiUrl)
       .then(response => response.json())
