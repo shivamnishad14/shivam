@@ -1,29 +1,40 @@
-const form = document.getElementById('contactForm');
-const responseMessage = document.getElementById('responseMessage');
-// const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbxsKumOS1H7hEYljOZn8CiYZQ4JmYe18nLnGD_Uo2yupYwnWEFt4iAmxuSMFLMlb4U/exec'; // Replace with your Apps Script Web App URL
-const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbyAsh7mogeD7eQRYtWVBNF6_6AovA1zpWw_ZxkXyg/dev'; // Replace with your Apps Script Web App URL
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+  console.log("Contact us form init");
+  
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwo0DkTP3dtvHgr5_2Iw4aCGG2bG50brR2RxeiMW5Gs1hBTjZmZ8wvoFkuE00pQZpvE/exec';
 
-  const formData = {
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    message: document.getElementById('message').value,
-  };
-
-  fetch(googleAppsScriptURL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      responseMessage.textContent = data.message;
-      form.reset();
+  document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+  
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      message: document.getElementById('message').value,
+    };
+  
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-    .catch((error) => {
-      responseMessage.textContent = 'Error submitting the form. Please try again.';
-      console.error('Error:', error);
-    });
-});
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        alert('Message sent successfully!');
+        console.log('Response:', data);
+      })
+      .catch((error) => {
+        alert('Failed to send message. Check console for details.');
+        console.error('Error:', error);
+      });
+  });
+  
+  
+
+  console.log("Contact us form end");
